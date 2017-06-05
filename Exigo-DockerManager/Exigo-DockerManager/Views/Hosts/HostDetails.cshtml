@@ -1,0 +1,148 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model Exigo_DockerManager.Models.HostsViewModel.Host
+
+<h1>Host Details</h1>
+<div>
+
+
+    <table width="100%">
+        <thead>
+            <tr>
+                <th>
+                    Name
+                </th>
+                <th>
+                    Server Name/Ip
+                </th>
+                <th>
+                    Port
+                </th>
+                <th>
+                    UserName
+                </th>
+                <th>
+                    Password
+                </th>
+                <th>
+                    Total Containers
+                </th>
+                <th>
+                    Running Containers
+                </th>
+                <th>
+                    Total Images
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    @Model.Name
+                </td>
+                <td>
+                    @Model.ServerName
+                </td>
+                <td>
+                    @Model.ServerPort
+                </td>
+                <td>
+                    @Model.ServerUserName
+                </td>
+                <td>
+                    @Model.ServerPassWord
+                </td>
+                <td>
+                    @Model.dockerProperties.Containers.Count()
+                </td>
+                <td>
+                    @Model.dockerProperties.Containers.Count(c => c.State == "Running")
+                </td>
+                <td>
+                    @Model.dockerProperties.Images.Count()
+                </td>
+                <td>
+                    <a href="">inspect</a>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</div>
+<br />
+<br />
+<div>
+    <table widith="100%">
+        <caption>Images</caption>
+        <thead>
+            <tr>
+                <th>
+                    Tag
+                </th>
+                <th>
+                    Labels
+                </th>
+                <th>
+                    Created
+                </th>
+                <th>
+                    Size
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var image in Model.dockerProperties.Images.Where(i => i.RepoTags.FirstOrDefault() != "<none>:<none>").OrderBy(o => o.Created))
+            {
+                <tr>
+                    <td>
+                        @image.RepoTags.FirstOrDefault()
+                    </td>
+                    <td>
+                        
+                    </td>
+                    <td>
+                        @image.Created
+                    </td>
+                    <td width="165px">
+                        @(String.Format("{0:0.00} GB", (image.Size / 1024.0 / 1024.0 / 1024.0)))
+                    </td>
+                    <td>
+                        <a href="">logs</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<br />
+<br />
+<div>
+    <table widith="100%">
+        <caption>Containers</caption>
+        <thead>
+            <tr>
+                <th>
+                    Container Id
+                </th>
+                <th>
+                    State
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var container in Model.dockerProperties.Containers)
+            {
+                <tr>
+                    <td>
+                        @container.ID
+                    </td>
+                    <td>
+                        @container.State
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exigo-DockerManager", "Exigo-DockerManager\Exigo-DockerManager.csproj", "{6A61FB4A-C6A1-4221-93BC-62484E0A7C7C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exigo-DockerManager.Tests", "Exigo-DockerManager.Tests\Exigo-DockerManager.Tests.csproj", "{45B8EA8D-739C-4F79-A5B0-2F26FBC8B9C0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6A61FB4A-C6A1-4221-93BC-62484E0A7C7C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A61FB4A-C6A1-4221-93BC-62484E0A7C7C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A61FB4A-C6A1-4221-93BC-62484E0A7C7C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A61FB4A-C6A1-4221-93BC-62484E0A7C7C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{45B8EA8D-739C-4F79-A5B0-2F26FBC8B9C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{45B8EA8D-739C-4F79-A5B0-2F26FBC8B9C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{45B8EA8D-739C-4F79-A5B0-2F26FBC8B9C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{45B8EA8D-739C-4F79-A5B0-2F26FBC8B9C0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,52 @@
+﻿@model IEnumerable<Exigo_DockerManager.Models.DockerFileViewModel.DockerFile>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>DockerFiles</h2>
+<a href="~/DockerFile/Manage" class="btn btn-primary">Add new</a>
+<table>
+    <thead>
+        <tr>
+            <th>
+                Id
+            </th>
+            <th>
+                Tag
+            </th>
+            <th>
+                Last Updated
+            </th>
+            <th>
+                Created
+            </th>
+            <th>
+                
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var dockerFile in Model)
+        {
+            <tr>
+                <td>
+                    @dockerFile.DockerFileId
+                </td>
+                <td>
+                    @dockerFile.Tag
+                </td>
+                <td>
+                    @dockerFile.DateUpdated
+                </td>
+                <td>
+                    @dockerFile.DateCreated
+                </td>
+                <td>
+                    <a href="~/DockerFile/Manage/@dockerFile.DockerFileId">view</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+

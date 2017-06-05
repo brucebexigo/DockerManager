@@ -1,0 +1,74 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model IEnumerable<Exigo_DockerManager.Models.HostsViewModel.Host>
+
+<h1>Hosts List</h1>
+<table width="100%">
+    <thead>
+        <tr>
+            <td>
+                Name
+            </td>
+            <td>
+                Server Name/Ip
+            </td>
+            <td>
+                Port
+            </td>
+            <td>
+                UserName
+            </td>
+            <td>
+                Password
+            </td>
+            <td>
+                Total Containers
+            </td>
+            <td>
+                Running Containers
+            </td>
+            <td>
+                Total Images
+            </td>
+            <td>
+                
+            </td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var host in Model)
+        {
+            <tr>
+                <td>
+                    @host.Name
+                </td>
+                <td>
+                    @host.ServerName
+                </td>
+                <td>
+                    @host.ServerPort
+                </td>
+                <td>
+                    @host.ServerUserName
+                </td>
+                <td>
+                    @host.ServerPassWord
+                </td>
+                <td>
+                    @host.dockerProperties.Containers.Count()
+                </td>
+                <td>
+                    @host.dockerProperties.Containers.Count(c => c.State == "Running")
+                </td>
+                <td>
+                    @host.dockerProperties.Images.Count()
+                </td>
+                <td>
+                    <a href="~/Hosts/HostDetails?hostId=@host.HostId">view</a>
+                </td>
+            </tr>
+        }
+        
+    </tbody>
+</table>
